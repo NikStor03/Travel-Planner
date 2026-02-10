@@ -1,5 +1,6 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
 from typing import Optional, List
+from pydantic import BaseModel, ConfigDict
 
 class PlaceCreate(BaseModel):
     external_id: int = Field(..., gt=0)
@@ -20,7 +21,9 @@ class PlaceUpdate(BaseModel):
     notes: Optional[str] = None
     visited: Optional[bool] = None
 
+
 class PlaceOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     external_id: int
     title: Optional[str]
@@ -28,10 +31,10 @@ class PlaceOut(BaseModel):
     visited: bool
     visited_at: Optional[str]
 
-    class Config:
-        from_attributes = True
 
 class ProjectOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     name: str
     description: Optional[str]
@@ -40,5 +43,3 @@ class ProjectOut(BaseModel):
     completed_at: Optional[str]
     places: List[PlaceOut]
 
-    class Config:
-        from_attributes = True
