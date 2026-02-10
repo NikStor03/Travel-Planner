@@ -21,7 +21,6 @@ python-dotenv==1.2.1
 respx==0.22.0
 SQLAlchemy==2.0.46
 starlette==0.52.1
--e git+https://github.com/NikStor03/Travel-Planner.git@a038b2ecff766160b5ee0134bedf4c6b84e18648#egg=travel_planner
 typing-inspection==0.4.2
 typing_extensions==4.15.0
 uvicorn==0.40.0
